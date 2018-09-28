@@ -24,7 +24,8 @@ install:
   - ps: node-gyp -v
   - cmd: yarn install --frozen-lockfile
   - cmd: yarn test
-  - ps: $publish_binary = 0
+  - cinst yarn
+  - ps: $publish_binary = 1
   - ps: if ($env:appveyor_repo_tag -match "true") { $publish_binary=1; }
   - ps: echo "tag $env:appveyor_repo_tag_name branch $env:APPVEYOR_REPO_BRANCH"
 build_script:
@@ -33,10 +34,10 @@ build_script:
   - ps: if ($arch -match "x86") { $arch="ia32"; }
   - ps: |
       if ($publish_binary -Eq "1") {
-        yarn global add node-pre-gyp node-pre-gyp-github@1.3.1
-        node-pre-gyp configure --runtime=$env:node_runtime --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL
-        node-pre-gyp build --runtime=$env:node_runtime  --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL
-        node-pre-gyp package --runtime=$env:node_runtime  --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL
+        yarn global add node-pre-gyp node-pre-gyp-github@1.3.1 2>&1 | write-host
+        node-pre-gyp configure --runtime=$env:node_runtime --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL 2>&1 | write-host
+        node-pre-gyp build --runtime=$env:node_runtime  --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL 2>&1 | write-host
+        node-pre-gyp package --runtime=$env:node_runtime  --target=$env:node_rversion --target_arch=$arch --dist-url=$env:DIST_URL 2>&1 | write-host
         node-pre-gyp-github publish 2>&1 | write-host
         if (-Not ($?)) {
           throw "publishing failed";
@@ -44,5 +45,4 @@ build_script:
       }
       echo "done."
 platform:
-  - x86
   - x64
