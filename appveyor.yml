@@ -15,7 +15,6 @@ install:
   - ps: if ($env:node_runtime -match "electron") { $in_node_version="10.11.0"; }
   - ps: echo "running node $in_node_version (was $env:node_rversion) on $env:platform"
   - ps: Install-Product node $in_node_version $env:platform
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - ps: |
         npm install -g node-gyp node-pre-gyp-github npm-windows-upgrade 2>&1 | out-null
         if ($LASTEXITCODE -NE 0) { throw "Failed installing node-gyp node-pre-gyp-github npm-windows-upgrade"; }
@@ -23,8 +22,8 @@ install:
   - ps: npm-windows-upgrade --npm-version latest
   - ps: npm -v
   - ps: node-gyp -v
-  - ps: yarn install --frozen-lockfile 2>&1 | write-host
-  - ps: yarn test 2>&1 | write-host
+  - cmd: yarn install --frozen-lockfile
+  - cmd: yarn test
   - ps: $publish_binary = 0
   - ps: if ($env:appveyor_repo_tag -match "true") { $publish_binary=1; }
   - ps: echo "tag $env:appveyor_repo_tag_name branch $env:APPVEYOR_REPO_BRANCH"
