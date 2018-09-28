@@ -7,7 +7,7 @@ cache:
 environment:
   matrix:
     - node_runtime: 'node'
-      node_rversion: '10.11.0'
+      node_rversion: '6.14.2'
 
 install:
   # install the right node version
