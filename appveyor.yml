@@ -8,7 +8,7 @@ environment:
   matrix:
     - node_runtime: 'node'
       node_rversion: '6.14.2'
-      GYP_MSVS_VERSION: 2015
+      GYP_MSVS_VERSION: 2017
 
 install:
   # install the right node version
