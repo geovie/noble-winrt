@@ -22,9 +22,11 @@ install:
   - ps: npm-windows-upgrade --npm-version latest
   - ps: npm -v
   - ps: node-gyp -v
+  - cinst yarn
+  - cmd: npm uninstall -g node-pre-gyp-github
+  - cmd: yarn global remove node-pre-gyp-github
   - cmd: yarn install --frozen-lockfile
   - cmd: yarn test
-  - cinst yarn
   - ps: $publish_binary = 1
   - ps: if ($env:appveyor_repo_tag -match "true") { $publish_binary=1; }
   - ps: echo "tag $env:appveyor_repo_tag_name branch $env:APPVEYOR_REPO_BRANCH"
