@@ -22,7 +22,6 @@ install:
   - ps: npm-windows-upgrade --npm-version latest
   - ps: npm -v
   - ps: node-gyp -v
-  - cinst yarn
   - cmd: npm uninstall -g node-pre-gyp-github
   - cmd: yarn install --frozen-lockfile
   - cmd: yarn test
@@ -46,4 +45,4 @@ build_script:
       }
       echo "done."
 platform:
-  - x64
+  - x86
