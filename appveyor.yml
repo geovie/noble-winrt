@@ -5,9 +5,9 @@ cache:
  - "%LOCALAPPDATA%\\Yarn"
 
 environment:
-  GYP_MSVS_VERSION: 2017
-  RUNTIME: 'node'
-  RVERSION: '10.11.0'
+  - GYP_MSVS_VERSION: 2017
+  - RUNTIME: 'node'
+  - RVERSION: '10.11.0'
 
 install:
   # install the right node version
