@@ -15,6 +15,7 @@ install:
   - ps: if ($env:node_runtime -match "electron") { $in_node_version="10.11.0"; }
   - ps: echo "running node $in_node_version (was $env:node_rversion) on $env:platform"
   - ps: Install-Product node $in_node_version $env:platform
+  - ps: call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - ps: yarn install --frozen-lockfile
   - ps: yarn test
   - ps: $publish_binary = 0
