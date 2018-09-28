@@ -11,10 +11,13 @@
         'VCCLCompilerTool': {
           'ExceptionHandling': 1,
           'AdditionalOptions': ['/await', '/std:c++latest'],
+          'AdditionalIncludeDirectories': [
+            'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.26624.0',
+          ],
         },
       },
-      'msvs_target_platform_version':'10.0.15063',
-      'msvs_target_platform_minversion':'10.0.15063',
+      'msvs_target_platform_version':'10.0.15063.0',
+      'msvs_target_platform_minversion':'10.0.15063.0',
       'conditions': [
         ['OS=="win"', { 'defines': [ '_HAS_EXCEPTIONS=1' ] }]
       ],
