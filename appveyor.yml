@@ -6,16 +6,6 @@ cache:
 
 environment:
   matrix:
-    # node
-    - RUNTIME: 'node'
-      RVERSION: '6.14.4'
-    - RUNTIME: 'node'
-      RVERSION: '8.12.0'
-    - RUNTIME: 'node'
-      RVERSION: '9.11.2'
-    - RUNTIME: 'node'
-      RVERSION: '10.10.0'
-
     # electron
     - RUNTIME: 'electron'
       RVERSION: '2.0.0'
