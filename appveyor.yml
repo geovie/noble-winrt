@@ -6,9 +6,8 @@ cache:
 
 environment:
   GYP_MSVS_VERSION: 2017
-  matrix:
-    - RUNTIME: 'node'
-      RVERSION: '10.11.0'
+  RUNTIME: 'node'
+  RVERSION: '10.11.0'
 
 install:
   # install the right node version
