@@ -11,9 +11,6 @@
         'VCCLCompilerTool': {
           'ExceptionHandling': 1,
           'AdditionalOptions': ['/await', '/std:c++latest'],
-          'AdditionalIncludeDirectories': [
-            'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.17134.0\\cppwinrt',
-          ],
         },
       },
       'msvs_target_platform_version':'10.0.15063.0',
