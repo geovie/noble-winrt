@@ -13,13 +13,13 @@ environment:
 install:
   # install the right node version
   - ps: Get-ChildItem -Path 'C:\Program Files (x86)\Windows Kits\10\Include\'
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10150.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10240.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10586.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.14393.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.15063.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.16299.0\\cppwinrt\\winrt\\base.h')
-  - ps: [System.IO.File]::Exists('C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.17134.0\\cppwinrt\\winrt\\base.h')
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10150.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10240.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.10586.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.14393.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.15063.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.16299.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
+  - ps: Test-Path 'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.17134.0\\cppwinrt\\winrt\\base.h' -PathType Leaf
   - ps: $in_node_version = $env:node_rversion
   - ps: if ($env:node_runtime -match "electron") { $in_node_version="10.11.0"; }
   - ps: echo "running node $in_node_version (was $env:node_rversion) on $env:platform"
