@@ -24,7 +24,6 @@ install:
   - ps: node-gyp -v
   - cinst yarn
   - cmd: npm uninstall -g node-pre-gyp-github
-  - cmd: yarn global remove node-pre-gyp-github
   - cmd: yarn install --frozen-lockfile
   - cmd: yarn test
   - ps: $publish_binary = 1
