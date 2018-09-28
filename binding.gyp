@@ -12,7 +12,7 @@
           'ExceptionHandling': 1,
           'AdditionalOptions': ['/await', '/std:c++latest'],
           'AdditionalIncludeDirectories': [
-            'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.15063.0\\cppwinrt',
+            'C:\\Program Files (x86)\\Windows Kits\\10\Include\\10.0.17134.0\\cppwinrt',
           ],
         },
       },
