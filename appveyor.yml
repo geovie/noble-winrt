@@ -5,8 +5,9 @@ cache:
  - "%LOCALAPPDATA%\\Yarn"
 
 environment:
-  node_runtime: 'node'
-  node_rversion: '10.11.0'
+  matrix:
+    - node_runtime: 'node'
+      node_rversion: '10.11.0'
 
 install:
   # install the right node version
